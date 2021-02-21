@@ -14,6 +14,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-wrap: nowrap;
+  width: 100%;
   height: 100%;
   border: 1px solid orange;
 }
@@ -21,11 +22,33 @@ body {
 .calc {
   display: flex;
   flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
   border: 1px solid purple;
-  width: 20vw;
+  width: 17rem;
 }
 
 .numberpad {
   display: flex;
   flex-flow: row wrap;
+  width: 16rem;
+}
+
+.input-value {
+  width: inherit;
+  overflow: scroll;
+  height: 4rem;
+}
+
+.input-value h2 {
+  text-align: right;
+  margin: 1rem;
+}
+
+.btn-calculate {
+  border: 1px solid gray;
+}
+.btn-calculate:focus {
+  border: 1px solid gray;
+  outline: none;
 }
