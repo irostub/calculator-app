@@ -1,0 +1,31 @@
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  height: 100%;
+  border: 1px solid orange;
+}
+
+.calc {
+  display: flex;
+  flex-flow: column nowrap;
+  border: 1px solid purple;
+  width: 20vw;
+}
+
+.numberpad {
+  display: flex;
+  flex-flow: row wrap;
+}

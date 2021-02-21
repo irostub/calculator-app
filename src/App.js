@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import CalcButton from "./components/CalcButton";
+import "./App.css";
 
 class App extends Component {
   constructor(props) {
@@ -158,10 +159,13 @@ class App extends Component {
     const { inputValue, result } = this.state;
 
     return (
-      <div>
-        {buttonNames.map((name) => {
-          return <CalcButton handleClick={this.handleClick} key={name} name={name}></CalcButton>;
-        })}
+      <div className="calc">
+        <h2 className="input-value">{inputValue}</h2>
+        <div className="numberpad">
+          {buttonNames.map((name) => {
+            return <CalcButton handleClick={this.handleClick} key={name} name={name}></CalcButton>;
+          })}
+        </div>
         <button
           onClick={this.calculate}
           ref={(ref) => {
@@ -171,9 +175,7 @@ class App extends Component {
           =
         </button>
         <button onClick={this.reset}>C</button>
-        <h2>{inputValue}</h2>
-        <h2>{result}</h2>
-        <div></div>
+        <h2 className="result">{result}</h2>
       </div>
     );
   }

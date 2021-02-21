@@ -1,0 +1,10 @@
+.btn-number {
+  width: 5vw;
+  height: 5vw;
+  background-color: transparent;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+button:focus {
+  border: none;
+}
