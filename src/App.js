@@ -8,11 +8,9 @@ class App extends Component {
     this.ref = React.createRef();
     this.state = {
       inputValue: "",
-      result: "",
     };
   }
   handleClick = (input) => {
-    console.log(input);
     const { inputValue } = this.state;
     const condition = input === "+" || input === "-" || input === "*" || input === "/";
     const isLastInputNotOpr =
@@ -52,6 +50,7 @@ class App extends Component {
         });
       }
     }
+    this.handleScrollTop();
   };
   handleKeycode = (code, key) => {
     if (code === "Enter") {
@@ -118,6 +117,12 @@ class App extends Component {
   };
   handleKeypress = (e) => {
     this.handleKeycode(e.code, e.key);
+    this.handleScrollTop();
+  };
+
+  handleScrollTop = () => {
+    const objDiv = document.querySelector(".input-value");
+    objDiv.scrollLeft = objDiv.scrollWidth;
   };
 
   calculate = () => {
@@ -127,14 +132,15 @@ class App extends Component {
       inputValue[inputValue.length - 1] === "-" ||
       inputValue[inputValue.length - 1] === "*" ||
       inputValue[inputValue.length - 1] === "/";
-    let solve = 0;
+    let solve = inputValue;
+    if (inputValue === "") return;
     if (isLastInputOpr) {
       alert("완성되지 않은 수식입니다.");
     } else {
       solve = eval(inputValue);
     }
     this.setState({
-      result: solve,
+      inputValue: solve.toString(),
     });
     return result;
   };
@@ -160,13 +166,16 @@ class App extends Component {
 
     return (
       <div className="calc">
-        <h2 className="input-value">{inputValue}</h2>
+        <div className="input-value">
+          <h2>{inputValue}</h2>
+        </div>
         <div className="numberpad">
           {buttonNames.map((name) => {
             return <CalcButton handleClick={this.handleClick} key={name} name={name}></CalcButton>;
           })}
         </div>
         <button
+          className="btn-calculate"
           onClick={this.calculate}
           ref={(ref) => {
             this.ref = ref;
@@ -174,8 +183,9 @@ class App extends Component {
         >
           =
         </button>
-        <button onClick={this.reset}>C</button>
-        <h2 className="result">{result}</h2>
+        <button className="btn-reset" onClick={this.reset}>
+          C
+        </button>
       </div>
     );
   }
