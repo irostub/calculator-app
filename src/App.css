@@ -27,22 +27,44 @@ body {
   border: 1px solid purple;
   width: 17rem;
 }
-
+.container {
+  padding-bottom: 0.5rem;
+}
 .numberpad {
-  display: flex;
+  display: inline-flex;
   flex-flow: row wrap;
-  width: 16rem;
+  width: 12rem;
+}
+
+.operator {
+  display: inline-flex;
+  flex-flow: row wrap;
+  width: 4rem;
+}
+
+.operator button {
+  width: 4rem;
+  height: 4rem;
+  background-color: transparent;
+  border: 1px solid gray;
+  border-radius: 5px;
+  outline: none;
 }
 
 .input-value {
   width: inherit;
-  overflow: scroll;
-  height: 4rem;
+  height: 5rem;
 }
 
 .input-value h2 {
+  border: 1px solid gray;
+  height: 4rem;
+  line-height: 4rem;
+  vertical-align: middle;
   text-align: right;
-  margin: 1rem;
+  overflow: scroll;
+  padding: 0 0.5rem 0 0.5rem;
+  margin: 0.5rem 0.5rem 0 0.5rem;
 }
 
 .btn-calculate {

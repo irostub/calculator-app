@@ -121,7 +121,7 @@ class App extends Component {
   };
 
   handleScrollTop = () => {
-    const objDiv = document.querySelector(".input-value");
+    const objDiv = document.querySelector(".input-value h2");
     objDiv.scrollLeft = objDiv.scrollWidth;
   };
 
@@ -161,7 +161,7 @@ class App extends Component {
   }
 
   render() {
-    const buttonNames = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "+", "-", "*", "/"];
+    const buttonNames = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
     const { inputValue, result } = this.state;
 
     return (
@@ -169,23 +169,33 @@ class App extends Component {
         <div className="input-value">
           <h2>{inputValue}</h2>
         </div>
-        <div className="numberpad">
-          {buttonNames.map((name) => {
-            return <CalcButton handleClick={this.handleClick} key={name} name={name}></CalcButton>;
-          })}
+        <div className="container">
+          <div className="numberpad">
+            {buttonNames.map((name) => {
+              return (
+                <CalcButton handleClick={this.handleClick} key={name} name={name}></CalcButton>
+              );
+            })}
+            <button
+              className="btn-calculate"
+              onClick={this.calculate}
+              ref={(ref) => {
+                this.ref = ref;
+              }}
+            >
+              =
+            </button>
+            <button className="btn-reset" onClick={this.reset}>
+              C
+            </button>
+          </div>
+          <div className="operator">
+            <button>+</button>
+            <button>-</button>
+            <button>*</button>
+            <button>/</button>
+          </div>
         </div>
-        <button
-          className="btn-calculate"
-          onClick={this.calculate}
-          ref={(ref) => {
-            this.ref = ref;
-          }}
-        >
-          =
-        </button>
-        <button className="btn-reset" onClick={this.reset}>
-          C
-        </button>
       </div>
     );
   }
