@@ -190,10 +190,10 @@ class App extends Component {
             </button>
           </div>
           <div className="operator">
-            <button>+</button>
-            <button>-</button>
-            <button>*</button>
-            <button>/</button>
+            <button onClick={() => this.handleClick("+")}>+</button>
+            <button onClick={() => this.handleClick("-")}>-</button>
+            <button onClick={() => this.handleClick("*")}>*</button>
+            <button onClick={() => this.handleClick("/")}>/</button>
           </div>
         </div>
       </div>
