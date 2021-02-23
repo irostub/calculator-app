@@ -16,7 +16,6 @@ body {
   flex-wrap: nowrap;
   width: 100%;
   height: 100%;
-  border: 1px solid orange;
 }
 
 .calc {
@@ -24,7 +23,7 @@ body {
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  border: 1px solid purple;
+  border: 1px solid black;
   width: 17rem;
 }
 .container {
@@ -62,11 +61,27 @@ body {
   line-height: 4rem;
   vertical-align: middle;
   text-align: right;
-  overflow: scroll;
+  overflow-x: scroll;
+  overflow-y: hidden;
   padding: 0 0.5rem 0 0.5rem;
   margin: 0.5rem 0.5rem 0 0.5rem;
 }
 
+.example {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.input-value h2::-webkit-scrollbar {
+  height: 5px;
+  background-color: gray;
+}
+.input-value h2::-webkit-scrollbar-thumb {
+  background-color: #2f3542;
+}
+.input-value h2::-webkit-scrollbar-track {
+  background-color: grey;
+}
 .btn-calculate {
   border: 1px solid gray;
 }
